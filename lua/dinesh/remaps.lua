@@ -5,6 +5,7 @@ vim.keymap.set("n", "<LEADER>w", vim.cmd.write, {})
 vim.keymap.set("n", "<LEADER>q", ":q!<CR>", {})
 
 vim.keymap.set("n", "<LEADER>sl", ":luafile %<CR>", {})
+vim.keymap.set("n", "<LEADER>py", ":!python3 %<CR>", {})
 
 vim.keymap.set("n", "<LEADER>ps", vim.cmd.PackerSync, {})
 vim.keymap.set("n", "<LEADER>pc", vim.cmd.PackerClean, {})

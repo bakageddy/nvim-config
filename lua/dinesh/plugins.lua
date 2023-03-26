@@ -12,6 +12,9 @@ return require('packer').startup(function(use)
 		},
 	}
 
+	-- Terminal
+	use 'numToStr/FTerm.nvim'
+
 	-- Treesitter
 	use {
 		'nvim-treesitter/nvim-treesitter',
@@ -57,5 +60,9 @@ return require('packer').startup(function(use)
 	-- Status Line
 	use 'nvim-lualine/lualine.nvim'
 
+	-- Colorizer
+	use 'norcalli/nvim-colorizer.lua'
+
+	-- Colorscheme
 	use 'ellisonleao/gruvbox.nvim'
 end)
