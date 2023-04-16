@@ -1,5 +1,6 @@
 local lsp = require("lsp-zero")
 local cmp = require("cmp")
+local snip = require("luasnip")
 
 lsp.preset("recommended")
 
@@ -9,12 +10,43 @@ lsp.ensure_installed({
 	"gopls",
 })
 
+local has_words_before = function ()
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
 
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
-	['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-	['<C-y>'] = cmp.mapping.confirm({ select = true }),
+	['<C-p>'] = cmp.mapping(function(fallback)
+		if cmp.visible() then
+			cmp.select_prev_item()
+		elseif snip.jumpable(-1) then
+			snip.jump(-1)
+		else fallback()
+		end
+	end, {"i", "s"}),
+	['<C-n>'] = cmp.mapping(function(fallback)
+		if cmp.visible() then
+			cmp.select_next_item()
+		elseif snip.expand_or_jumpable() then
+			snip.expand_or_jump()
+		elseif has_words_before() then
+			cmp.complete()
+		else fallback()
+		end
+	end, {"i", "s"}),
+	['<C-y>'] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          cmp.confirm()
+        elseif snip.expand_or_jumpable() then
+          snip.expand_or_jump()
+        elseif has_words_before() then
+          cmp.mapping.complete()
+        else
+          fallback()
+        end
+	end, {"i", "s"}),
 	['<C-space>'] = cmp.mapping.complete(),
 })
 

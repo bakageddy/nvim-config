@@ -57,6 +57,8 @@ return require('packer').startup(function(use)
 		}
 	}
 
+	use 'gpanders/nvim-parinfer'
+
 	-- Status Line
 	use 'nvim-lualine/lualine.nvim'
 
