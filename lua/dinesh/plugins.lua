@@ -1,6 +1,8 @@
 vim.cmd [[ packadd packer.nvim ]]
 
-return require('packer').startup(function(use)
+return require('packer').startup(
+
+function(use)
 	use 'wbthomason/packer.nvim'
 
 	-- Telescope
@@ -57,6 +59,10 @@ return require('packer').startup(function(use)
 		}
 	}
 
+	-- Impatient
+	use 'lewis6991/impatient.nvim'
+
+	-- for Yuck!
 	use 'gpanders/nvim-parinfer'
 
 	-- Status Line
@@ -67,4 +73,8 @@ return require('packer').startup(function(use)
 
 	-- Colorscheme
 	use 'ellisonleao/gruvbox.nvim'
+	use 'rebelot/kanagawa.nvim'
+	use 'alexvzyl/nordic.nvim'
+	use 'maxmx03/solarized.nvim'
+
 end)

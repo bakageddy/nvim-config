@@ -207,5 +207,5 @@ ins_right {
 lualine.setup(config)
 
 -- lualine.setup {
--- 	theme = 'auto'
+-- 	theme = 'nordic'
 -- }

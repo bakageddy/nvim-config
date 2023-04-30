@@ -6,7 +6,7 @@ function ColorMe()
 		contrast = "hard",
 		invert_selection = true,
 	}
-	vim.cmd.colorschem [[gruvbox]]
+	vim.cmd.colorscheme [[gruvbox]]
 end
 
 ColorMe()
