@@ -40,6 +40,7 @@ M.nord = {
   blue     = '#88C0D0',
   red      = '#BF616A',
 }
+
 M.dracula = {
   bg       = '#FF1D2021',
   fg       = '#F8F8F2',

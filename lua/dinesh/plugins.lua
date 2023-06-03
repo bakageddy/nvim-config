@@ -80,6 +80,7 @@ return require('packer').startup(
 		use 'norcalli/nvim-colorizer.lua'
 
 		-- Colorscheme
+		use 'mofiqul/dracula.nvim'
 		use 'ellisonleao/gruvbox.nvim'
 		use 'rebelot/kanagawa.nvim'
 		use 'alexvzyl/nordic.nvim'
