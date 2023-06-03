@@ -40,4 +40,18 @@ M.nord = {
   blue     = '#88C0D0',
   red      = '#BF616A',
 }
+M.dracula = {
+  bg       = '#FF1D2021',
+  fg       = '#F8F8F2',
+  yellow   = '#F1FA8C',
+  cyan     = '#8BE9FD',
+  darkblue = '#BD93F9',
+  green    = '#50FA7B',
+  orange   = '#FFB86C',
+  violet   = '#BD93F9',
+  magenta  = '#FF79C6',
+  blue     = '#8BE9FD',
+  red      = '#FF5555',
+
+}
 return M

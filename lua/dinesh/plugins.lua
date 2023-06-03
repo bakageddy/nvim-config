@@ -1,7 +1,6 @@
 vim.cmd [[ packadd packer.nvim ]]
 
 return require('packer').startup(
-
 function(use)
 	use 'wbthomason/packer.nvim'
 
@@ -74,7 +73,6 @@ function(use)
 	-- Colorscheme
 	use 'ellisonleao/gruvbox.nvim'
 	use 'rebelot/kanagawa.nvim'
-	use 'alexvzyl/nordic.nvim'
+	use 'mofiqul/dracula.nvim'
 	use 'maxmx03/solarized.nvim'
-
 end)
