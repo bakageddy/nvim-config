@@ -3,7 +3,7 @@ local null = require("null-ls")
 null.setup({
 	sources = {
 		null.builtins.formatting.gofumpt,
-		null.builtins.formatting.prettier,
+		null.builtins.formatting.prettierd,
 		null.builtins.formatting.autoflake,
 
 		null.builtins.diagnostics.revive,

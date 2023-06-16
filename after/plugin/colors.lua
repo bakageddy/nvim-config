@@ -1,12 +1,14 @@
-local gruvbox = require 'gruvbox'
-
+local kanagawa = require 'kanagawa'
 function ColorMe()
-	vim.opt.background = 'dark'
-	gruvbox.setup {
-		contrast = "hard",
-		invert_selection = true,
+	kanagawa.setup {
+		overrides = function(colors)
+			return {
+				Visual = { reverse = true },
+			}
+		end,
+		theme = "wave",
 	}
-	vim.cmd.colorscheme [[gruvbox]]
+	vim.cmd.colorscheme [[kanagawa]]
 end
 
 ColorMe()

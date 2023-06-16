@@ -3,7 +3,7 @@ local themes = require 'dinesh.themes'
 
 -- Color table for highlights
 -- stylua: ignore
-local colors = themes.gruvbox
+local colors = themes.kanagawa
 
 local conditions = {
   buffer_not_empty = function()
@@ -207,5 +207,5 @@ ins_right {
 lualine.setup(config)
 
 -- lualine.setup {
--- 	theme = 'nordic'
+-- 	theme = 'auto'
 -- }
