@@ -1,3 +1,4 @@
+---@diagnostic disable: unknown-cast-variable
 vim.cmd [[ packadd packer.nvim ]]
 
 return require('packer').startup(
@@ -5,12 +6,20 @@ return require('packer').startup(
 	function(use)
 		use 'wbthomason/packer.nvim'
 
+		-- Git
+		use 'tpope/vim-fugitive'
+		use 'tpope/vim-rhubarb'
+
 		-- Telescope
 		use {
 			'nvim-telescope/telescope.nvim',
 			tag = '0.1.1',
 			requires = {
-				{ 'nvim-lua/plenary.nvim' }
+				{ 'nvim-lua/plenary.nvim' },
+				{
+					'nvim-telescope/telescope-fzf-native.nvim',
+					run = 'make',
+				},
 			},
 		}
 
@@ -23,8 +32,27 @@ return require('packer').startup(
 			run = ":TSUpdate",
 		}
 
-		use "windwp/nvim-autopairs"
-		use "numToStr/Comment.nvim"
+		use {
+			'nvim-treesitter/nvim-treesitter-context',
+			after = "nvim-treesitter",
+			requires = "nvim-treesitter/nvim-treesitter"
+		}
+
+		use {
+			"nvim-treesitter/nvim-treesitter-textobjects",
+			after = "nvim-treesitter",
+			requires = "nvim-treesitter/nvim-treesitter"
+		}
+
+		use {
+			"windwp/nvim-autopairs",
+			after = "nvim-treesitter",
+		}
+
+		use {
+			"numToStr/Comment.nvim",
+			after = "nvim-treesitter",
+		}
 
 		-- Neovim tree
 		use {
@@ -44,6 +72,7 @@ return require('packer').startup(
 				{ 'neovim/nvim-lspconfig' },
 				{ 'williamboman/mason.nvim' },
 				{ 'williamboman/mason-lspconfig.nvim' },
+				{ 'folke/neodev.nvim'},
 
 				-- Autocompletion
 				{ 'hrsh7th/nvim-cmp' },
@@ -82,4 +111,5 @@ return require('packer').startup(
 		-- Colorscheme
 		use 'morhetz/gruvbox'
 		use 'rebelot/kanagawa.nvim'
+		use 'rose-pine/neovim'
 	end)

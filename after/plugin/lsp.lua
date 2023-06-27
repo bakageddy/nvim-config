@@ -1,6 +1,7 @@
 local lsp = require("lsp-zero")
 local cmp = require("cmp")
 local snip = require("luasnip")
+local neodev = require("neodev")
 
 lsp.preset("recommended")
 
@@ -8,6 +9,8 @@ lsp.ensure_installed({
 	"rust_analyzer",
 	"clangd",
 	"gopls",
+	"lua_ls",
+	"pyright",
 })
 
 local has_words_before = function()
@@ -80,5 +83,6 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 
+neodev.setup()
 lsp.nvim_workspace()
 lsp.setup()
