@@ -105,9 +105,6 @@ return require('packer').startup(
 		-- Impatient
 		use 'lewis6991/impatient.nvim'
 
-		-- for Yuck!
-		use 'gpanders/nvim-parinfer'
-
 		-- Status Line
 		use 'nvim-lualine/lualine.nvim'
 
