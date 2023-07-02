@@ -7,7 +7,7 @@ return require('packer').startup(
 
 		-- Git
 		use {
-			'TimUntersberger/neogit',
+			'NeogitOrg/neogit',
 			requires = {
 				'nvim-lua/plenary.nvim',
 				'sindrets/diffview.nvim'
@@ -27,6 +27,17 @@ return require('packer').startup(
 					run = 'make',
 				},
 			},
+		}
+
+		use {
+			"nvim-telescope/telescope-file-browser.nvim",
+			requires = {
+				"nvim-telescope/telescope.nvim",
+				"nvim-lua/plenary.nvim"
+			},
+			after = {
+				"telescope.nvim"
+			}
 		}
 
 		-- Terminal
@@ -112,7 +123,5 @@ return require('packer').startup(
 		use 'norcalli/nvim-colorizer.lua'
 
 		-- Colorscheme
-		use 'morhetz/gruvbox'
 		use 'rebelot/kanagawa.nvim'
-		use 'rose-pine/neovim'
 	end)

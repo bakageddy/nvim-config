@@ -55,12 +55,10 @@ local config = {
   },
 }
 
--- Inserts a component in lualine_c at left section
 local function ins_left(component)
   table.insert(config.sections.lualine_c, component)
 end
 
--- Inserts a component in lualine_x ot right section
 local function ins_right(component)
   table.insert(config.sections.lualine_x, component)
 end
@@ -69,8 +67,8 @@ ins_left {
   function()
     return '▊'
   end,
-  color = { fg = colors.blue }, -- Sets highlighting of component
-  padding = { left = 0, right = 1 }, -- We don't need space before this
+  color = { fg = colors.green }, -- Sets highlighting of component
+  padding = { left = 0, right = 2 }, -- We don't need space before this
 }
 
 ins_left {
@@ -100,7 +98,7 @@ ins_left {
       t = colors.red,
     }
     vim.api.nvim_command('hi! LualineMode guifg=' .. mode_color[vim.fn.mode()] .. ' guibg=' .. colors.bg)
-    return ''
+    return ''
   end,
   color = 'LualineMode',
   padding = { right = 1 },
@@ -158,34 +156,33 @@ ins_left {
     end
     return msg
   end,
-  icon = '  LSP:',
-  color = { fg = colors.cyan , gui = 'bold' },
+  icon = ' LSP:',
+  color = { fg = colors.cyan , gui = 'italic' },
 }
 
--- Add components to right sections
-ins_right {
-  'o:encoding', -- option component same as &encoding in viml
-  fmt = string.upper, -- I'm not sure why it's upper case either ;)
-  cond = conditions.hide_in_width,
-  color = { fg = colors.green, gui = 'bold' },
-}
+-- -- Add components to right sections
+-- ins_right {
+--   'o:encoding', -- option component same as &encoding in viml
+--   fmt = string.upper, -- I'm not sure why it's upper case either ;)
+--   cond = conditions.hide_in_width,
+--   color = { fg = colors.green, gui = 'bold' },
+-- }
 
-ins_right {
-  'fileformat',
-  fmt = string.upper,
-  icons_enabled = true, -- I think icons are cool but Eviline doesn't have them. sigh
-  color = { fg = colors.red, gui = 'bold' },
-}
+-- ins_right {
+--   'fileformat',
+--   fmt = string.upper,
+--   icons_enabled = true, -- I think icons are cool but Eviline doesn't have them. sigh
+--   color = { fg = colors.red, gui = 'bold' },
+-- }
 
 ins_right {
   'branch',
-  icon = ' ',
+  icon = '',
   color = { fg = colors.green, gui = 'bold' },
 }
 
 ins_right {
   'diff',
-  -- Is it me or the symbol for modified us really weird
   symbols = { added = 'A=', modified = 'M=', removed = 'R=' },
   diff_color = {
     added = { fg = colors.green },
@@ -199,13 +196,9 @@ ins_right {
   function()
     return '▊'
   end,
-  color = { fg = colors.blue },
+  color = { fg = colors.green },
   padding = { left = 1 },
 }
 
 -- Now don't forget to initialize lualine
 lualine.setup(config)
-
--- lualine.setup {
--- 	theme = 'auto'
--- }
