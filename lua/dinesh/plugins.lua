@@ -122,5 +122,5 @@ return require('packer').startup( function(use)
 		use 'norcalli/nvim-colorizer.lua'
 
 		-- Colorscheme
-		use 'rebelot/kanagawa.nvim'
+		use 'ellisonleao/gruvbox.nvim'
 	end)

@@ -1,7 +1,8 @@
 local term = require "FTerm"
 
 term.setup {
-	border = 'single'
+	border = 'rounded',
+	blend = 20,
 }
 
 vim.keymap.set('n', [[<C-\>]], function()
