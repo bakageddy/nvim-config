@@ -1,17 +1,42 @@
+---@diagnostic disable: unknown-cast-variable
 vim.cmd [[ packadd packer.nvim ]]
 
-return require('packer').startup(
-
-	function(use)
+return require('packer').startup( function(use)
 		use 'wbthomason/packer.nvim'
+
+		-- Git
+		use {
+			'NeogitOrg/neogit',
+			requires = {
+				'nvim-lua/plenary.nvim',
+				'sindrets/diffview.nvim'
+			}
+		}
+
+		use 'lewis6991/gitsigns.nvim'
 
 		-- Telescope
 		use {
 			'nvim-telescope/telescope.nvim',
 			tag = '0.1.1',
 			requires = {
-				{ 'nvim-lua/plenary.nvim' }
+				{ 'nvim-lua/plenary.nvim' },
+				{
+					'nvim-telescope/telescope-fzf-native.nvim',
+					run = 'make',
+				},
 			},
+		}
+
+		use {
+			"nvim-telescope/telescope-file-browser.nvim",
+			requires = {
+				"nvim-telescope/telescope.nvim",
+				"nvim-lua/plenary.nvim"
+			},
+			after = {
+				"telescope.nvim"
+			}
 		}
 
 		-- Terminal
@@ -23,8 +48,27 @@ return require('packer').startup(
 			run = ":TSUpdate",
 		}
 
-		use "windwp/nvim-autopairs"
-		use "numToStr/Comment.nvim"
+		use {
+			'nvim-treesitter/nvim-treesitter-context',
+			after = "nvim-treesitter",
+			requires = "nvim-treesitter/nvim-treesitter"
+		}
+
+		use {
+			"nvim-treesitter/nvim-treesitter-textobjects",
+			after = "nvim-treesitter",
+			requires = "nvim-treesitter/nvim-treesitter"
+		}
+
+		use {
+			"windwp/nvim-autopairs",
+			after = "nvim-treesitter",
+		}
+
+		use {
+			"numToStr/Comment.nvim",
+			after = "nvim-treesitter",
+		}
 
 		-- Neovim tree
 		use {
@@ -44,6 +88,7 @@ return require('packer').startup(
 				{ 'neovim/nvim-lspconfig' },
 				{ 'williamboman/mason.nvim' },
 				{ 'williamboman/mason-lspconfig.nvim' },
+				{ 'folke/neodev.nvim'},
 
 				-- Autocompletion
 				{ 'hrsh7th/nvim-cmp' },
@@ -70,9 +115,6 @@ return require('packer').startup(
 		-- Impatient
 		use 'lewis6991/impatient.nvim'
 
-		-- for Yuck!
-		use 'gpanders/nvim-parinfer'
-
 		-- Status Line
 		use 'nvim-lualine/lualine.nvim'
 
@@ -81,7 +123,4 @@ return require('packer').startup(
 
 		-- Colorscheme
 		use 'ellisonleao/gruvbox.nvim'
-		use 'rebelot/kanagawa.nvim'
-		use 'alexvzyl/nordic.nvim'
-		use 'maxmx03/solarized.nvim'
 	end)

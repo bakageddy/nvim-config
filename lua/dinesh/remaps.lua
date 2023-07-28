@@ -2,7 +2,7 @@ vim.g.mapleader = " "
 
 vim.keymap.set("i", "jj", "<ESC>", {})
 vim.keymap.set("n", "<LEADER>w", vim.cmd.write, {})
-vim.keymap.set("n", "<LEADER>q", ":q!<CR>", {})
+vim.keymap.set("n", "<LEADER>q", function () vim.cmd.quit{bang=true} end, {})
 
 vim.keymap.set("n", "<LEADER>sl", ":luafile %<CR>", {})
 vim.keymap.set("n", "<LEADER>py", ":!python3 %<CR>", {})

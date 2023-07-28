@@ -40,4 +40,19 @@ M.nord = {
   blue     = '#88C0D0',
   red      = '#BF616A',
 }
+
+M.kanagawa = {
+  bg       = '#1F1F28',
+  fg       = '#DCD7BA',
+  yellow   = '#DCA561',
+  cyan     = '#7AA89F',
+  darkblue = '#7E9CD8',
+  green    = '#597B75',
+  orange   = '#FFA066',
+  violet   = '#957FB8',
+  magenta  = '#957FB8',
+  blue     = '#7FB4CA',
+  red      = '#FF5D62',
+}
+
 return M
