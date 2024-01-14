@@ -12,6 +12,8 @@ function ColorMe()
 			TelescopePreviewBorder = {fg = "#fabd2f"},
 			TelescopeTitleBorder = {fg = "#8ec07c"},
 			TelescopePromptBorder = {fg = "#fe8019"},
+			FloatBorder = {bg = "#1d2021"},
+			SignColumn = {fg = "#1d2021", bg = "#1d2021"}
 		}
 	}
 	-- kanagawa.setup {
