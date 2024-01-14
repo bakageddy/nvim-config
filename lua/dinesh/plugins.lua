@@ -18,7 +18,6 @@ return require('packer').startup( function(use)
 		-- Telescope
 		use {
 			'nvim-telescope/telescope.nvim',
-			tag = '0.1.1',
 			requires = {
 				{ 'nvim-lua/plenary.nvim' },
 				{
@@ -57,7 +56,12 @@ return require('packer').startup( function(use)
 		use {
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			after = "nvim-treesitter",
-			requires = "nvim-treesitter/nvim-treesitter"
+			requires = "nvim-treesitter/nvim-treesitter",
+		}
+
+		use {
+			"nvim-treesitter/playground",
+			after = "nvim-treesitter",
 		}
 
 		use {
@@ -123,4 +127,5 @@ return require('packer').startup( function(use)
 
 		-- Colorscheme
 		use 'ellisonleao/gruvbox.nvim'
+		use 'craftzdog/solarized-osaka.nvim'
 	end)

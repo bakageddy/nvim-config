@@ -68,7 +68,7 @@ context.setup {
 	enable = true,
 }
 
-vim.keymap.set("n", "<leader>tt", "<CMD>TSBufToggle highlight<CR>", {silent = true})
+vim.keymap.set("n", "<leader>tt", "<CMD>TSBufToggle highlight<CR>", { silent = true })
 
 vim.keymap.set("n", "[c", function()
 	context.go_to_context()
