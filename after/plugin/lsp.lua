@@ -10,7 +10,6 @@ lsp.ensure_installed({
 	"clangd",
 	"gopls",
 	"lua_ls",
-	"pyright",
 })
 
 local has_words_before = function()
@@ -67,8 +66,13 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 })
 
 lsp.on_attach(function(client, bufnr)
+	if (client == "clangd") then
+		print("Wow you know C?")
+	end
+	client.server_capabilities.semanticTokensProvider = nil
 	local opts = { buffer = bufnr, remap = false }
 	vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+	vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
 	vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
 	vim.keymap.set("n", "<leader>ss", function() vim.lsp.buf.workspace_symbol() end, opts)
 	vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)

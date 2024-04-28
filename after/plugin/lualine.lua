@@ -4,6 +4,7 @@ local themes = require 'dinesh.themes'
 -- Color table for highlights
 -- stylua: ignore
 local colors = themes.gruvbox
+-- local colors = themes.grayscale_dark
 
 local conditions = {
   buffer_not_empty = function()
@@ -68,7 +69,7 @@ ins_left {
     return '▊'
   end,
   color = { fg = colors.blue }, -- Sets highlighting of component
-  padding = { left = 0, right = 2 }, -- We don't need space before this
+  padding = { left = 0, right = 1 }, -- We don't need space before this
 }
 
 ins_left {
@@ -98,10 +99,10 @@ ins_left {
       t = colors.red,
     }
     vim.api.nvim_command('hi! LualineMode guifg=' .. mode_color[vim.fn.mode()] .. ' guibg=' .. colors.bg)
-    return ''
+    return ''
   end,
   color = 'LualineMode',
-  padding = { right = 1 },
+  padding = { right = 1, left = 0 },
 }
 
 ins_left {
@@ -200,5 +201,5 @@ ins_right {
   padding = { left = 1 },
 }
 
--- Now don't forget to initialize lualine
+-- -- Now don't forget to initialize lualine
 lualine.setup(config)
