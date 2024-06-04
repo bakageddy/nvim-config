@@ -4,6 +4,9 @@ vim.cmd [[ packadd packer.nvim ]]
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 
+	-- Tmux
+	use 'tmux-plugins/vim-tmux'
+
 	-- Git
 	use {
 		'NeogitOrg/neogit',
@@ -41,7 +44,7 @@ return require('packer').startup(function(use)
 	}
 
 	-- Terminal
-	use 'numToStr/FTerm.nvim'
+	use 'akinsho/toggleterm.nvim'
 
 	-- Treesitter
 	use {
@@ -129,7 +132,7 @@ return require('packer').startup(function(use)
 
 	-- Colorscheme
 	use 'ellisonleao/gruvbox.nvim'
-	use 'maxmx03/solarized.nvim'
+	use 'miikanissi/modus-themes.nvim'
 	use 'rebelot/kanagawa.nvim'
-	use '~/.software/alduin.nvim'
+	use 'logico/typewriter-vim'
 end)

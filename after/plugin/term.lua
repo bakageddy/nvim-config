@@ -1,8 +1,11 @@
-local term = require "FTerm"
+local term = require 'toggleterm'
 
 term.setup {
-	border = 'rounded',
-	blend = 20,
+	size = 10,
+	direction = 'float',
+	float_opts = {
+		border = 'curved'
+	}
 }
 
 vim.keymap.set('n', [[<C-\>]], function()
@@ -10,5 +13,5 @@ vim.keymap.set('n', [[<C-\>]], function()
 end, {})
 
 vim.keymap.set('t', [[<C-\>]], function()
-	term.toggle() 
+	term.toggle()
 end, {})

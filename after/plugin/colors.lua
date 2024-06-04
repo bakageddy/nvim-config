@@ -1,10 +1,11 @@
 local kanagawa = require 'kanagawa'
 local gruvbox = require 'gruvbox'
-local solarized = require 'solarized'
+-- local solarized = require 'solarized'
+local modus = require "modus-themes"
 
 function ColorMe()
-	local p = require("solarized.palette")
-	local solarized_colors = p.get_colors()
+	-- local p = require("solarized.palette")
+	-- local solarized_colors = p.get_colors()
 
 	gruvbox.setup {
 		terminal_colors = false,
@@ -39,18 +40,35 @@ function ColorMe()
 		theme = "wave",
 	}
 
-	solarized.setup {
-		theme = 'neo',
-		highlights = function(colors)
-			return {
-				SignColumn = { bg = colors.bg },
-				Visual = { reverse = true },
-				TelescopeNormal = { fg = colors.bg },
-			}
-		end,
-	}
+	-- solarized.setup {
+	-- 	theme = 'neo',
+	-- 	highlights = function(colors)
+	-- 		return {
+	-- 			SignColumn = { bg = colors.bg },
+	-- 			Visual = { reverse = true },
+	-- 			TelescopeNormal = { fg = colors.bg },
+	-- 		}
+	-- 	end,
+	-- }
 
-	vim.cmd.colorscheme [[gruvbox]]
+	modus.setup {
+		on_colors = function(colors)
+		end,
+		on_highlights = function(highlight, color)
+			highlight.Cursor = { bg = "#000000", fg = "#000000" }
+		end
+	}
+	local shour = os.date("%H", os.time())
+	local hour = tonumber(shour)
+	if hour == nil then
+		vim.cmd.colorscheme [[modus_vivendi]]
+	elseif hour >= 9 and hour <= 17 then
+		vim.cmd.colorscheme [[modus_operandi]]
+	else
+		vim.cmd.colorscheme [[modus_vivendi]]
+	end
+
+	vim.api.nvim_set_hl(0, "Visual", { reverse = true })
 end
 
 ColorMe()
