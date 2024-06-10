@@ -1,7 +1,7 @@
 local kanagawa = require 'kanagawa'
 local gruvbox = require 'gruvbox'
 -- local solarized = require 'solarized'
-local modus = require "modus-themes"
+-- local modus = require "modus-themes"
 
 function ColorMe()
 	-- local p = require("solarized.palette")
@@ -51,24 +51,26 @@ function ColorMe()
 	-- 	end,
 	-- }
 
-	modus.setup {
-		on_colors = function(colors)
-		end,
-		on_highlights = function(highlight, color)
-			highlight.Cursor = { bg = "#000000", fg = "#000000" }
-		end
-	}
-	local shour = os.date("%H", os.time())
-	local hour = tonumber(shour)
-	if hour == nil then
-		vim.cmd.colorscheme [[modus_vivendi]]
-	elseif hour >= 9 and hour <= 17 then
-		vim.cmd.colorscheme [[modus_operandi]]
-	else
-		vim.cmd.colorscheme [[modus_vivendi]]
-	end
+	-- modus.setup {
+	-- 	on_colors = function(colors)
+	-- 	end,
+	-- 	on_highlights = function(highlight, color)
+	-- 		highlight.Cursor = { bg = "#000000", fg = "#000000" }
+	-- 	end
+	-- }
+	-- local shour = os.date("%H", os.time())
+	-- local hour = tonumber(shour)
+	-- if hour == nil then
+	-- 	vim.cmd.colorscheme [[modus_vivendi]]
+	-- elseif hour >= 9 and hour <= 17 then
+	-- 	vim.cmd.colorscheme [[modus_operandi]]
+	-- else
+	-- 	vim.cmd.colorscheme [[modus_vivendi]]
+	-- end
 
+	vim.cmd.colorscheme [[iceberg]]
 	vim.api.nvim_set_hl(0, "Visual", { reverse = true })
+	vim.api.nvim_set_hl(0, "SignColumn", {bg="#161821"})
 end
 
 ColorMe()

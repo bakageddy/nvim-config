@@ -134,5 +134,5 @@ return require('packer').startup(function(use)
 	use 'ellisonleao/gruvbox.nvim'
 	use 'miikanissi/modus-themes.nvim'
 	use 'rebelot/kanagawa.nvim'
-	use 'logico/typewriter-vim'
+	use 'oahlen/iceberg.nvim'
 end)

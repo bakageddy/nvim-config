@@ -1,10 +1,4 @@
 local M = {}
--- lua require('base16-colorscheme').setup({
---     \ base00 = '#101010', base01 = '#252525', base02 = '#464646', base03 = '#525252',
---     \ base04 = '#ababab', base05 = '#b9b9b9', base06 = '#e3e3e3', base07 = '#f7f7f7',
---     \ base08 = '#7c7c7c', base09 = '#999999', base0A = '#a0a0a0', base0B = '#8e8e8e',
---     \ base0C = '#868686', base0D = '#686868', base0E = '#747474', base0F = '#5e5e5e'
---     \})
 
 M.grayscale_dark = {
   bg       = '#101010',
@@ -74,6 +68,20 @@ M.kanagawa = {
   magenta  = '#957FB8',
   blue     = '#7FB4CA',
   red      = '#FF5D62',
+}
+
+M.iceberg = {
+  bg       = '#161821',
+  fg       = '#C6C8D1',
+  yellow   = '#e2a478',
+  cyan     = '#89b8c2',
+  darkblue = '#84a0c6',
+  green    = '#b4be82',
+  orange   = '#e2a478',
+  violet   = '#a093c7',
+  magenta  = '#ada0d3',
+  blue     = '#91acd1',
+  red      = '#e27878',
 }
 
 return M
