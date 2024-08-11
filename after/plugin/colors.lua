@@ -12,20 +12,23 @@ function ColorMe()
 		invert_selection = true,
 		contrast = "hard",
 		palette_overrides = {
-			red = "#ff5f5f",
-			bright_red = "#ff5f5f",
+			-- red = "#ff5f5f",
+			-- bright_red = "#ff5f5f",
 			light1 = "#d4be98"
 		},
 		overrides = {
-			TelescopePromptTitle = { fg = "#1d2021", bg = "#fe8019" },
-			TelescopeTitle = { fg = "#1d2021", bg = "#8ec07c" },
-			TelescopePreviewTitle = { fg = "#1d2021", bg = "#FABD2F" },
-			TelescopePreviewBorder = { fg = "#fabd2f" },
-			TelescopeTitleBorder = { fg = "#8ec07c" },
-			TelescopePromptBorder = { fg = "#fe8019" },
-			FloatBorder = { bg = "#1d2021" },
-			SignColumn = { fg = "#1d2021", bg = "#1d2021" },
-			["@punctuation.bracket"] = { fg = "#fe8019" },
+			TelescopePromptTitle = { fg = gruvbox.palette.dark0_hard, bg = gruvbox.palette.bright_orange },
+			TelescopeTitle = { fg = gruvbox.palette.dark0_hard, bg = gruvbox.palette.bright_aqua },
+			TelescopePreviewTitle = { fg = gruvbox.palette.dark0_hard, bg = gruvbox.palette.bright_yellow },
+			TelescopePreviewBorder = { fg = gruvbox.palette.bright_yellow },
+			TelescopeTitleBorder = { fg = gruvbox.palette.bright_aqua },
+			TelescopePromptBorder = { fg = gruvbox.palette.bright_orange },
+			FloatBorder = { bg = gruvbox.palette.dark0_hard },
+			SignColumn = { fg = gruvbox.palette.dark0_hard, bg = gruvbox.palette.dark0_hard },
+			["@punctuation.bracket"] = { fg = gruvbox.palette.bright_orange },
+			["@module"] = { fg = gruvbox.palette.bright_aqua },
+			["@namespace"] = { link = "@module" },
+			["@keyword"] = {fg = gruvbox.palette.bright_red, italic = true},
 		}
 	}
 
@@ -68,9 +71,7 @@ function ColorMe()
 	-- 	vim.cmd.colorscheme [[modus_vivendi]]
 	-- end
 
-	vim.cmd.colorscheme [[iceberg]]
-	vim.api.nvim_set_hl(0, "Visual", { reverse = true })
-	vim.api.nvim_set_hl(0, "SignColumn", {bg="#161821"})
+	vim.cmd.colorscheme [[gruvbox]]
 end
 
 ColorMe()

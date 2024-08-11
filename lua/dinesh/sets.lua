@@ -26,3 +26,4 @@ vim.opt.scrolloff = 10
 vim.opt.sidescrolloff = 8
 
 vim.wo.wrap = false
+vim.cmd [[set t_Co=256]]

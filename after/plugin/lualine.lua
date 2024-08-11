@@ -2,7 +2,7 @@ local lualine = require 'lualine'
 local themes = require 'dinesh.themes'
 -- Color table for highlights
 -- stylua: ignore
-local colors = themes.iceberg
+local colors = themes.gruvbox
 -- local colors = themes.grayscale_dark
 --
 local conditions = {
@@ -75,10 +75,10 @@ ins_left {
 		-- auto change color according to neovims mode
 		local mode_color = {
 			n = colors.red,
-			i = colors.blue,
+			i = colors.fg,
 			v = colors.orange,
 			[''] = colors.orange,
-			V = colors.orange,
+			V = colors.bg,
 			c = colors.magenta,
 			no = colors.red,
 			s = colors.orange,
@@ -92,7 +92,7 @@ ins_left {
 			r = colors.cyan,
 			rm = colors.cyan,
 			['r?'] = colors.cyan,
-			['!'] = colors.red,
+			['!'] = colors.fg,
 			t = colors.red,
 		}
 		vim.api.nvim_command('hi! LualineMode guifg=' .. mode_color[vim.fn.mode()] .. ' guibg=' .. colors.bg)
@@ -101,24 +101,24 @@ ins_left {
 	color = 'LualineMode',
 	padding = { right = 1, left = 0 },
 }
-ins_left {
-	-- filesize component
-	'filesize',
-	cond = conditions.buffer_not_empty,
-}
+-- ins_left {
+-- 	-- filesize component
+-- 	'filesize',
+-- 	cond = conditions.buffer_not_empty,
+-- }
 ins_left {
 	'filename',
 	cond = conditions.buffer_not_empty,
 	color = { fg = colors.yellow, gui = 'bold' },
 }
-ins_left { 'location' }
+-- ins_left { 'location' }
 
-ins_left { 'progress', color = { fg = colors.fg, gui = 'bold' } }
+-- ins_left { 'progress', color = { fg = colors.fg, gui = 'bold' } }
 
 ins_left {
 	'diagnostics',
 	sources = { 'nvim_diagnostic' },
-	symbols = { error = 'E ', warn = 'W', info = 'I' },
+	symbols = { error = '  ', warn = '  ', info = '  ' },
 	diagnostics_color = {
 		color_error = { fg = colors.red },
 		color_warn = { fg = colors.yellow },
@@ -154,18 +154,18 @@ ins_left {
 	icon = ' LSP:',
 	color = { fg = colors.cyan, gui = 'italic' },
 }
-ins_right {
-	'o:encoding',     -- option component same as &encoding in viml
-	fmt = string.upper, -- I'm not sure why it's upper case either ;)
-	cond = conditions.hide_in_width,
-	color = { fg = colors.green, gui = 'bold' },
-}
-ins_right {
-	'fileformat',
-	fmt = string.upper,
-	icons_enabled = true, -- I think icons are cool but Eviline doesn't have them. sigh
-	color = { fg = colors.red, gui = 'bold' },
-}
+-- ins_right {
+-- 	'o:encoding',     -- option component same as &encoding in viml
+-- 	fmt = string.upper, -- I'm not sure why it's upper case either ;)
+-- 	cond = conditions.hide_in_width,
+-- 	color = { fg = colors.green, gui = 'bold' },
+-- }
+-- ins_right {
+-- 	'fileformat',
+-- 	fmt = string.upper,
+-- 	icons_enabled = true, -- I think icons are cool but Eviline doesn't have them. sigh
+-- 	color = { fg = colors.red, gui = 'bold' },
+-- }
 ins_right {
 	'branch',
 	icon = '',

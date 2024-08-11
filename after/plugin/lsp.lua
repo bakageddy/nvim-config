@@ -66,10 +66,13 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 })
 
 lsp.on_attach(function(client, bufnr)
-	if (client == "clangd") then
-		print("Wow you know C?")
+	-- if (client == "clangd") then
+	-- 	print("Wow you know C?")
+	-- end
+
+	if client.server_capabilities.inlayHintProvider then
+		vim.lsp.inlay_hint.enable(true)
 	end
-	client.server_capabilities.semanticTokensProvider = nil
 	local opts = { buffer = bufnr, remap = false }
 	vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
 	vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
