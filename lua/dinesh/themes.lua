@@ -1,10 +1,24 @@
 local M = {}
 
 M.grayscale_dark = {
-  bg       = '#101010',
-  fg       = '#b9b9b9',
+  bg       = '#CCCCCC',
+  fg       = '#1d1d1d',
   yellow   = '#525252',
   cyan     = '#e3e3e3',
+  darkblue = '#868686',
+  green    = '#464646',
+  orange   = '#525252',
+  violet   = '#b9b9b9',
+  magenta  = '#686868',
+  blue     = '#ababab',
+  red      = '#252525',
+}
+
+M.grayscale_light = {
+  bg       = '#CCCCCC',
+  fg       = '#1d1d1d',
+  yellow   = '#525252',
+  cyan     = '#333333',
   darkblue = '#868686',
   green    = '#464646',
   orange   = '#525252',
@@ -29,7 +43,7 @@ M.gruvbox_flat = {
 }
 
 M.gruvbox = {
-  bg       = '#cc1d2021',
+  bg       = '#1d2021',
   fg       = '#ebdbb2',
   yellow   = '#fabd2f',
   cyan     = '#8ec07c',
@@ -82,6 +96,20 @@ M.iceberg = {
   magenta  = '#ada0d3',
   blue     = '#91acd1',
   red      = '#e27878',
+}
+
+M.rosepine = {
+  bg       = '#19172F',
+  fg       = '#E0DEF4',
+  yellow   = '#F6C177',
+  cyan     = '#EBBCBA',
+  darkblue = '#9CCFD8',
+  green    = '#31748F',
+  orange   = '#F6C177',
+  violet   = '#C4A7E7',
+  magenta  = '#C4A7E7',
+  blue     = '#9CCFD8',
+  red      = '#EB6F92',
 }
 
 return M

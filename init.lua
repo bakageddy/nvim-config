@@ -1,5 +1,5 @@
-require("impatient")
 require("dinesh")
+require("impatient")
 
 -- vim.g.neovide_padding_left = 20
 -- vim.g.neovide_padding_right = 20

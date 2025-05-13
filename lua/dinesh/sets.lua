@@ -12,12 +12,14 @@ vim.opt.showmode = false
 vim.opt.backup = false
 vim.opt.swapfile = false
 vim.opt.hlsearch = false
+vim.o.mouse = ""
 
 vim.opt.cmdheight = 1
 vim.opt.laststatus = 3
 vim.opt.updatetime = 50
 
 vim.opt.backspace = "eol,indent,start"
+vim.opt.completeopt = "menu,menuone,noinsert"
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4

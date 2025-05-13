@@ -65,13 +65,13 @@ require 'nvim-treesitter.configs'.setup {
 	},
 }
 
--- local context = require("treesitter-context")
--- context.setup {
--- 	enable = true,
--- }
+local context = require("treesitter-context")
+context.setup {
+	enable = true,
+}
 
 vim.keymap.set("n", "<leader>tt", "<CMD>TSBufToggle highlight<CR>", { silent = true })
 
--- vim.keymap.set("n", "[c", function()
--- 	context.go_to_context()
--- end, { silent = true })
+vim.keymap.set("n", "[c", function()
+	context.go_to_context()
+end, { silent = true })

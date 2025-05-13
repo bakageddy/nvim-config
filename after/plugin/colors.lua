@@ -11,6 +11,8 @@ function ColorMe()
 		terminal_colors = false,
 		invert_selection = true,
 		contrast = "hard",
+		dim_inactive = false,
+		transparent_mode = false,
 		palette_overrides = {
 			-- red = "#ff5f5f",
 			-- bright_red = "#ff5f5f",
@@ -29,6 +31,8 @@ function ColorMe()
 			["@module"] = { fg = gruvbox.palette.bright_aqua },
 			["@namespace"] = { link = "@module" },
 			["@keyword"] = {fg = gruvbox.palette.bright_red, italic = true},
+			IndentLine = {link = "Comment", bold = true},
+			IndentLineCurrent = {fg = gruvbox.palette.light1},
 		}
 	}
 
@@ -40,38 +44,26 @@ function ColorMe()
 				SignColumn = { fg = "#1f1f28", bg = "#1f1f28" }
 			}
 		end,
-		theme = "wave",
+		theme = "dragon",
 	}
 
-	-- solarized.setup {
-	-- 	theme = 'neo',
-	-- 	highlights = function(colors)
-	-- 		return {
-	-- 			SignColumn = { bg = colors.bg },
-	-- 			Visual = { reverse = true },
-	-- 			TelescopeNormal = { fg = colors.bg },
-	-- 		}
-	-- 	end,
-	-- }
-
-	-- modus.setup {
-	-- 	on_colors = function(colors)
-	-- 	end,
-	-- 	on_highlights = function(highlight, color)
-	-- 		highlight.Cursor = { bg = "#000000", fg = "#000000" }
-	-- 	end
-	-- }
-	-- local shour = os.date("%H", os.time())
-	-- local hour = tonumber(shour)
-	-- if hour == nil then
-	-- 	vim.cmd.colorscheme [[modus_vivendi]]
-	-- elseif hour >= 9 and hour <= 17 then
-	-- 	vim.cmd.colorscheme [[modus_operandi]]
-	-- else
-	-- 	vim.cmd.colorscheme [[modus_vivendi]]
-	-- end
-
+	-- vim.o.background = 'light'
 	vim.cmd.colorscheme [[gruvbox]]
+	vim.api.nvim_set_hl(0, "Visual", {
+		reverse = true,
+	})
+	vim.api.nvim_set_hl(0, "SignColumn", {
+		link = "Normal",
+	})
+	vim.api.nvim_set_hl(0, "NvimTreeNormal", {
+		link = "Normal",
+	})
+	vim.api.nvim_set_hl(0, "NvimTreeNormalNC", {
+		link = "Normal",
+	})
+	vim.api.nvim_set_hl(0, "FloatBorder", {
+		link = "Normal",
+	})
 end
 
 ColorMe()
