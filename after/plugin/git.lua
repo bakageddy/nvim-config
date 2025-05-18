@@ -3,11 +3,11 @@ local neogit = require("neogit")
 
 signs.setup {
 	signs = {
-		add = { text = '+' },
-		change = { text = '~' },
-		delete = { text = 'x'},
-		topdelele = { text = '~' },
-		changedelete = { text = '~' },
+		-- add = { text = '+' },
+		-- change = { text = '~' },
+		-- delete = { text = 'x'},
+		-- topdelele = { text = '~' },
+		-- changedelete = { text = '~' },
 	}
 }
 neogit.setup {}

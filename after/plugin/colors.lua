@@ -33,6 +33,8 @@ function ColorMe()
 			["@keyword"] = {fg = gruvbox.palette.bright_red, italic = true},
 			IndentLine = {link = "Comment", bold = true},
 			IndentLineCurrent = {fg = gruvbox.palette.light1},
+			["@keyword.type"] = { link = "Structure" },
+			["@type.builtin"] = { link = "Special" },
 		}
 	}
 
