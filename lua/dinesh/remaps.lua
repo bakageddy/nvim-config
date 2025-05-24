@@ -11,7 +11,7 @@ vim.keymap.set("n", "<LEADER>ps", vim.cmd.PackerSync, {})
 vim.keymap.set("n", "<LEADER>pc", vim.cmd.PackerClean, {})
 
 vim.keymap.set("n", "<LEADER>rb", "<C-^>", {})
-vim.keymap.set("n", "<LEADER>on", vim.cmd.NvimTreeToggle, {})
+vim.keymap.set("n", "<LEADER>on", "<CMD>Neotree toggle<CR>", {})
 
 vim.keymap.set("n", "<LEADER>p", [["+p]], {})
 
