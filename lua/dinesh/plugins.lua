@@ -5,22 +5,55 @@ return require('packer').startup(
 	function(use)
 		use 'wbthomason/packer.nvim'
 
+		-- Git
+		use {
+			"tpope/vim-fugitive"
+		}
+
+		use 'lewis6991/gitsigns.nvim'
+
 		-- Telescope
 		use {
 			'nvim-telescope/telescope.nvim',
-			tag = '0.1.1',
 			requires = {
-				{ 'nvim-lua/plenary.nvim' }
+				{ 'nvim-lua/plenary.nvim' },
+				{
+					'nvim-telescope/telescope-fzf-native.nvim',
+					run = 'make',
+				},
 			},
 		}
 
+		use {
+			"nvim-telescope/telescope-file-browser.nvim",
+			requires = {
+				"nvim-telescope/telescope.nvim",
+				"nvim-lua/plenary.nvim",
+			},
+			after = {
+				"telescope.nvim"
+			}
+		}
+
 		-- Terminal
-		use 'numToStr/FTerm.nvim'
+		use 'akinsho/toggleterm.nvim'
 
 		-- Treesitter
 		use {
 			'nvim-treesitter/nvim-treesitter',
 			run = ":TSUpdate",
+		}
+
+		use {
+			'nvim-treesitter/nvim-treesitter-textobjects',
+			after = 'nvim-treesitter',
+			requires = 'nvim-treesitter/nvim-treesitter',
+		}
+
+		use {
+			'nvim-treesitter/playground',
+			after = 'nvim-treesitter',
+			requires = 'nvim-treesitter/nvim-treesitter',
 		}
 
 		use "windwp/nvim-autopairs"
@@ -63,15 +96,12 @@ return require('packer').startup(
 			"jay-babu/mason-null-ls.nvim",
 			requires = {
 				"williamboman/mason.nvim",
-				"jose-elias-alvarez/null-ls.nvim",
+				"nvimtools/none-ls.nvim",
 			}
 		}
 
 		-- Impatient
 		use 'lewis6991/impatient.nvim'
-
-		-- for Yuck!
-		use 'gpanders/nvim-parinfer'
 
 		-- Status Line
 		use 'nvim-lualine/lualine.nvim'
@@ -79,9 +109,12 @@ return require('packer').startup(
 		-- Colorizer
 		use 'norcalli/nvim-colorizer.lua'
 
+		-- Misc
+		use 'folke/todo-comments.nvim'
+
 		-- Colorscheme
 		use 'ellisonleao/gruvbox.nvim'
+		use 'miikanissi/modus-themes.nvim'
 		use 'rebelot/kanagawa.nvim'
-		use 'alexvzyl/nordic.nvim'
-		use 'maxmx03/solarized.nvim'
+		use 'alexxgmz/e-ink.nvim'
 	end)

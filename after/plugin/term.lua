@@ -1,7 +1,8 @@
-local term = require "FTerm"
+local term = require "toggleterm"
 
 term.setup {
-	border = 'single'
+	direction = 'float',
+	border = 'curved'
 }
 
 vim.keymap.set('n', [[<C-\>]], function()
@@ -9,5 +10,9 @@ vim.keymap.set('n', [[<C-\>]], function()
 end, {})
 
 vim.keymap.set('t', [[<C-\>]], function()
-	term.toggle() 
+	term.toggle()
 end, {})
+
+vim.keymap.set('n', [[<LEADER>te]], function ()
+	vim.cmd [[ToggleTermSendCurrentLine]]
+end)
