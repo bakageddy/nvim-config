@@ -61,41 +61,55 @@ return require('packer').startup(
 
 		-- Neovim tree
 		use {
-			"nvim-tree/nvim-tree.lua",
+			"nvim-neo-tree/neo-tree.nvim",
+			branch = "v3.x",
 			requires = {
+				"nvim-lua/plenary.nvim",
 				"nvim-tree/nvim-web-devicons",
+				"MunifTanjim/nui.nvim"
 			},
-			tag = "nightly",
 		}
 
 		-- LSP Zero
+		use { 'neovim/nvim-lspconfig' }
+		use { 'mason-org/mason.nvim' }
+		use { 'mason-org/mason-lspconfig.nvim' }
+		use { 'folke/neodev.nvim' }
+
+		-- Autocompletion
+		use { 'saghen/blink.cmp' }
+
+		-- Snippets
+		use { 'L3MON4D3/LuaSnip' }
+		use { 'rafamadriz/friendly-snippets' }
+
 		use {
-			'VonHeikemen/lsp-zero.nvim',
-			branch = 'v1.x',
+			"mfussenegger/nvim-dap",
 			requires = {
-				-- LSP Support
-				{ 'neovim/nvim-lspconfig' },
-				{ 'williamboman/mason.nvim' },
-				{ 'williamboman/mason-lspconfig.nvim' },
-
-				-- Autocompletion
-				{ 'hrsh7th/nvim-cmp' },
-				{ 'hrsh7th/cmp-nvim-lsp' },
-				{ 'hrsh7th/cmp-buffer' },
-				{ 'hrsh7th/cmp-path' },
-				{ 'saadparwaiz1/cmp_luasnip' },
-				{ 'hrsh7th/cmp-nvim-lua' },
-
-				-- Snippets
-				{ 'L3MON4D3/LuaSnip' },
-				{ 'rafamadriz/friendly-snippets' },
+				{'rcarriga/nvim-dap-ui'},
+				{'nvim-neotest/nvim-nio'},
+				{'williamboman/mason.nvim'},
+				{'jay-babu/mason-nvim-dap.nvim'},
 			}
+		}
+		use {
+			'mfussenegger/nvim-jdtls'
+		}
+
+		use {
+			"nvimtools/none-ls.nvim"
+		}
+
+		use "stevearc/conform.nvim"
+
+		use {
+			'nvimdev/indentmini.nvim',
 		}
 
 		use {
 			"jay-babu/mason-null-ls.nvim",
 			requires = {
-				"williamboman/mason.nvim",
+				"mason-org/mason.nvim",
 				"nvimtools/none-ls.nvim",
 			}
 		}
@@ -116,5 +130,5 @@ return require('packer').startup(
 		use 'ellisonleao/gruvbox.nvim'
 		use 'miikanissi/modus-themes.nvim'
 		use 'rebelot/kanagawa.nvim'
-		use 'alexxgmz/e-ink.nvim'
+		use 'webhooked/kanso.nvim'
 	end)

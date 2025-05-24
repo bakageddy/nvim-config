@@ -20,12 +20,23 @@ List* create(void) {
 	return temp;
 }
 
-void recursive_free(Node* n) {
+void recursive_free(Node *n) {
 	if (!n) {
 		return;
 	}
 	recursive_free(n -> next);
 	free(n);
+}
+
+void alloc_node(Node *n) {
+	n = malloc(sizeof(*n));
+	if (n == NULL) {
+		return;
+	}
+
+	n -> data = 0;
+	n -> next = NULL;
+	return;
 }
 
 void delete(List* l) {

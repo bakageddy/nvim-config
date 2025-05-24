@@ -50,7 +50,7 @@ function ColorMe()
 		end
 	}
 
-	vim.cmd.colorscheme [[gruvbox]]
+	vim.cmd.colorscheme [[kanso-zen]]
 	global_hl("Visual", {
 		reverse = true
 	})
