@@ -1,7 +1,10 @@
 local kanagawa = require 'kanagawa'
 local gruvbox = require 'gruvbox'
--- local solarized = require 'solarized'
 -- local modus = require "modus-themes"
+
+local global_hl = function(group, settings)
+	vim.api.nvim_set_hl(0, group, settings)
+end
 
 function ColorMe()
 	-- local p = require("solarized.palette")
@@ -49,23 +52,17 @@ function ColorMe()
 		theme = "dragon",
 	}
 
-	-- vim.o.background = 'light'
-	vim.cmd.colorscheme [[gruvbox]]
-	vim.api.nvim_set_hl(0, "Visual", {
-		reverse = true,
+	vim.cmd.colorscheme [[kanso-zen]]
+	global_hl("Visual", {
+		reverse = true
 	})
-	vim.api.nvim_set_hl(0, "SignColumn", {
+	global_hl("VisualNOS", {
+		link = "Visual",
+	})
+	global_hl("SignColumn", {
 		link = "Normal",
 	})
-	vim.api.nvim_set_hl(0, "NvimTreeNormal", {
-		link = "Normal",
-	})
-	vim.api.nvim_set_hl(0, "NvimTreeNormalNC", {
-		link = "Normal",
-	})
-	vim.api.nvim_set_hl(0, "FloatBorder", {
-		link = "Normal",
-	})
+
 end
 
 ColorMe()

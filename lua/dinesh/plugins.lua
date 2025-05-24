@@ -34,20 +34,11 @@ return require('packer').startup(function(use)
 		},
 	}
 
-	use {
-		"nvim-telescope/telescope-file-browser.nvim",
-		requires = {
-			"nvim-telescope/telescope.nvim",
-			"nvim-lua/plenary.nvim"
-		},
-		after = {
-			"telescope.nvim"
-		}
-	}
 
 	-- Terminal
 	use 'akinsho/toggleterm.nvim'
 	use 'pocco81/true-zen.nvim'
+
 
 	-- Treesitter
 	use {
@@ -68,11 +59,6 @@ return require('packer').startup(function(use)
 	}
 
 	use {
-		"nvim-treesitter/playground",
-		after = "nvim-treesitter",
-	}
-
-	use {
 		"windwp/nvim-autopairs",
 		after = "nvim-treesitter",
 	}
@@ -83,12 +69,16 @@ return require('packer').startup(function(use)
 	}
 
 	-- Neovim tree
-	use {
-		"nvim-tree/nvim-tree.lua",
-		requires = {
-			"nvim-tree/nvim-web-devicons",
-		},
-	}
+	use({
+	  "nvim-neo-tree/neo-tree.nvim",
+	  branch = "v3.x",
+	  requires = {
+		"nvim-lua/plenary.nvim",
+		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+		"MunifTanjim/nui.nvim",
+	  }
+	})
+
 	-- LSP Support
 	use { 'neovim/nvim-lspconfig' }
 	use { 'mason-org/mason.nvim' }
@@ -117,6 +107,17 @@ return require('packer').startup(function(use)
 
 	use {
 		"nvimtools/none-ls.nvim"
+	}
+	use {
+		'nvim-treesitter/nvim-treesitter-textobjects',
+		after = 'nvim-treesitter',
+		requires = 'nvim-treesitter/nvim-treesitter',
+	}
+
+	use {
+		'nvim-treesitter/playground',
+		after = 'nvim-treesitter',
+		requires = 'nvim-treesitter/nvim-treesitter',
 	}
 
 	use "stevearc/conform.nvim"
@@ -147,5 +148,5 @@ return require('packer').startup(function(use)
 	use 'miikanissi/modus-themes.nvim'
 	use 'rebelot/kanagawa.nvim'
 	use 'bakageddy/alduin.nvim'
-	use 'projekt0n/github-nvim-theme'
+	use 'webhooked/kanso.nvim'
 end)

@@ -15,3 +15,7 @@ end, {})
 vim.keymap.set('t', [[<C-\>]], function()
 	term.toggle()
 end, {})
+
+vim.keymap.set('n', [[<LEADER>te]], function ()
+	vim.cmd [[ToggleTermSendCurrentLine]]
+end)

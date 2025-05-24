@@ -1,3 +1,4 @@
+---@diagnostic disable
 local cmp = require("blink.cmp")
 -- local snip = require("luasnip")
 local neodev = require("neodev")
@@ -22,7 +23,6 @@ cmp.setup({
 		['<C-p>'] = {'select_prev', 'fallback'},
 		['<C-d>'] = {'snippet_forward', 'fallback'},
 		['K'] = {'show_signature', 'fallback'},
-
 	},
 	appearance = {
 		nerd_font_variant = 'mono',

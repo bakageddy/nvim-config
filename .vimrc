@@ -1,3 +1,4 @@
+set t_Co=256
 set expandtab
 set autoindent
 set tabstop=4

@@ -1,8 +1,9 @@
 local lualine = require 'lualine'
 local themes = require 'dinesh.themes'
+
 -- Color table for highlights
 -- stylua: ignore
-local colors = themes.gruvbox
+local colors = themes.kanso
 -- local colors = themes.grayscale_dark
 --
 local conditions = {
@@ -116,14 +117,63 @@ ins_left {
 -- ins_left { 'progress', color = { fg = colors.fg, gui = 'bold' } }
 
 ins_left {
-	'diagnostics',
-	sources = { 'nvim_diagnostic' },
-	symbols = { error = '  ', warn = '  ', info = '  ' },
-	-- diagnostics_color = {
-	-- 	color_error = { fg = colors.red },
-	-- 	color_warn = { fg = colors.yellow },
-	-- 	color_info = { fg = colors.cyan },
-	-- },
+  -- mode component
+  function()
+    -- auto change color according to neovims mode
+    local mode_color = {
+      n = colors.red,
+      i = colors.blue,
+      v = colors.orange,
+      [''] = colors.orange,
+      V = colors.orange,
+      c = colors.magenta,
+      no = colors.red,
+      s = colors.orange,
+      S = colors.orange,
+      [''] = colors.orange,
+      ic = colors.yellow,
+      R = colors.violet,
+      Rv = colors.violet,
+      cv = colors.red,
+      ce = colors.red,
+      r = colors.cyan,
+      rm = colors.cyan,
+      ['r?'] = colors.cyan,
+      ['!'] = colors.red,
+      t = colors.red,
+    }
+    vim.api.nvim_command('hi! LualineMode guifg=' .. mode_color[vim.fn.mode()] .. ' guibg=' .. colors.bg)
+    return ''
+  end,
+  color = 'LualineMode',
+  padding = { right = 1 },
+}
+
+-- ins_left {
+--   -- filesize component
+--   'filesize',
+--   cond = conditions.buffer_not_empty,
+-- }
+
+ins_left {
+  'filename',
+  cond = conditions.buffer_not_empty,
+  color = { fg = colors.yellow, gui = 'bold' },
+}
+
+-- ins_left { 'location' }
+
+-- ins_left { 'progress', color = { fg = colors.fg, gui = 'bold' } }
+
+ins_left {
+  'diagnostics',
+  sources = { 'nvim_diagnostic' },
+  symbols = { error = 'E ', warn = 'W', info = 'I' },
+  diagnostics_color = {
+    color_error = { fg = colors.red },
+    color_warn = { fg = colors.yellow },
+    color_info = { fg = colors.cyan },
+  },
 }
 
 -- Insert mid section. You can make any number of sections in neovim :)
@@ -188,8 +238,30 @@ ins_right {
 	color = { fg = colors.blue },
 	padding = { left = 1 },
 }
+
+-- Add components to right sections
+-- ins_right {
+--   'o:encoding', -- option component same as &encoding in viml
+--   fmt = string.upper, -- I'm not sure why it's upper case either ;)
+--   cond = conditions.hide_in_width,
+--   color = { fg = colors.green, gui = 'bold' },
+-- }
+
+-- ins_right {
+--   'fileformat',
+--   fmt = string.upper,
+--   icons_enabled = true, -- I think icons are cool but Eviline doesn't have them. sigh
+--   color = { fg = colors.red, gui = 'bold' },
+-- }
+
+ins_right {
+  'branch',
+  icon = '',
+  color = { fg = colors.green, gui = 'bold' },
+}
+
 lualine.setup(config)
 
 -- lualine.setup {
--- 	theme = 'auto',
+-- 	theme = 'auto'
 -- }
