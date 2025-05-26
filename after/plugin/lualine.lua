@@ -1,7 +1,7 @@
 local lualine = require 'lualine'
 local themes = require 'dinesh.themes'
 
-local colors = themes.gruvbox
+local colors = themes.kanso_zen
 
 local conditions = {
   buffer_not_empty = function()

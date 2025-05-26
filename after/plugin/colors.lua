@@ -60,16 +60,10 @@ function ColorMe()
 	global_hl("SignColumn", {
 		link = "Normal",
 	})
+	global_hl("@type.builtin", {
+		link = "Type"
+	})
 
-	global_hl("NvimTreeNormalNC", {
-		link = "Normal"
-	})
-	global_hl("NvimTreeNormal", {
-		link = "Normal",
-	})
-	global_hl("NvimTreeWinSeparator", {
-		link = "Normal",
-	})
 end
 
 ColorMe()

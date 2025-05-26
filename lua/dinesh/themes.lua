@@ -141,4 +141,19 @@ M.iceberg = {
   red      = '#e27878',
 }
 
+M.kanso_zen = {
+  bg       = '#090E13',
+  fg       = '#C5C9C7',
+  yellow   = '#c4b28a',
+  cyan     = '#7aa89f',
+  darkblue = '#8ba4b0',
+  green    = '#87a987',
+  orange   = '#e2a478',
+  violet   = '#a292a3',
+  magenta  = '#938aa9',
+  blue     = '#7fb4ca',
+  red      = '#c4746e',
+
+}
+
 return M
