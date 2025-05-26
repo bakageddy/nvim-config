@@ -1,11 +1,7 @@
 local lualine = require 'lualine'
 local themes = require 'dinesh.themes'
 
--- Color table for highlights
--- stylua: ignore
-local colors = themes.kanso
--- local colors = themes.grayscale_dark
---
+local colors = themes.kanso_zen
 local conditions = {
 	buffer_not_empty = function()
 		return vim.fn.empty(vim.fn.expand '%:t') ~= 1

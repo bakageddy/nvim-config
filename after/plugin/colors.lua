@@ -62,6 +62,9 @@ function ColorMe()
 	global_hl("SignColumn", {
 		link = "Normal",
 	})
+	global_hl("@type.builtin", {
+		link = "Type"
+	})
 
 end
 
