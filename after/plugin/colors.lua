@@ -36,7 +36,7 @@ function ColorMe()
 			["@keyword"] = {fg = gruvbox.palette.bright_red, italic = true},
 			IndentLine = {link = "Comment", bold = true},
 			IndentLineCurrent = {fg = gruvbox.palette.light1},
-			["@keyword.type"] = { link = "Structure" },
+			-- ["@keyword.type"] = { link = "Structure" },
 			["@type.builtin"] = { link = "Special" },
 		}
 	}
@@ -52,9 +52,10 @@ function ColorMe()
 		theme = "dragon",
 	}
 
+	-- vim.o.background = 'light'
 	vim.cmd.colorscheme [[kanso-zen]]
-	global_hl("Visual", {
-		reverse = true
+	vim.api.nvim_set_hl(0, "Visual", {
+		reverse = true,
 	})
 	global_hl("VisualNOS", {
 		link = "Visual",

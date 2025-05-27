@@ -147,6 +147,6 @@ return require('packer').startup(function(use)
 	use 'ellisonleao/gruvbox.nvim'
 	use 'miikanissi/modus-themes.nvim'
 	use 'rebelot/kanagawa.nvim'
-	use 'bakageddy/alduin.nvim'
+	use 'oahlen/iceberg.nvim'
 	use 'webhooked/kanso.nvim'
 end)
