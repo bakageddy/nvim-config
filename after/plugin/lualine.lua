@@ -3,7 +3,7 @@ local themes = require 'dinesh.themes'
 
 -- Color table for highlights
 -- stylua: ignore
-local colors = themes.kanso_zen
+local colors = themes.gruvbox
 -- local colors = themes.grayscale_dark
 --
 local conditions = {
@@ -16,7 +16,9 @@ local conditions = {
 	check_git_workspace = function()
 		local filepath = vim.fn.expand '%:p:h'
 		local gitdir = vim.fn.finddir('.git', filepath .. ';')
-		return gitdir and #gitdir > 0 and #gitdir < #filepath
+		local hgdir = vim.fn.finddir('.hg', filepath .. ';')
+		return (gitdir and #gitdir > 0 and #gitdir < #filepath)
+			or (hgdir and #hgdir > 0 and #hgdir < #filepath)
 	end,
 }
 
@@ -116,7 +118,7 @@ ins_left {
 
 -- ins_left { 'progress', color = { fg = colors.fg, gui = 'bold' } }
 
--- ins_left { 'location' }
+ins_left { 'location' }
 
 -- ins_left { 'progress', color = { fg = colors.fg, gui = 'bold' } }
 

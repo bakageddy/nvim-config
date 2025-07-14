@@ -123,6 +123,7 @@ return require('packer').startup(function(use)
 
 	use {
 		'nvimdev/indentmini.nvim',
+
 	}
 
 	use {

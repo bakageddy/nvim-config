@@ -19,7 +19,8 @@ function ColorMe()
 		palette_overrides = {
 			-- red = "#ff5f5f",
 			-- bright_red = "#ff5f5f",
-			light1 = "#d4be98"
+			light1 = "#d4be98",
+			light0 = "#d4be98",
 		},
 		overrides = {
 			TelescopePromptTitle = { fg = gruvbox.palette.dark0_hard, bg = gruvbox.palette.bright_orange },
@@ -35,7 +36,7 @@ function ColorMe()
 			["@namespace"] = { link = "@module" },
 			["@keyword"] = {fg = gruvbox.palette.bright_red, italic = true},
 			IndentLine = {link = "Comment", bold = true},
-			IndentLineCurrent = {fg = gruvbox.palette.light1},
+			-- IndentLineCurrent = {fg = gruvbox.palette.light1},
 			-- ["@keyword.type"] = { link = "Structure" },
 			["@type.builtin"] = { link = "Special" },
 		}
@@ -53,7 +54,7 @@ function ColorMe()
 	}
 
 	-- vim.o.background = 'light'
-	vim.cmd.colorscheme [[kanso-zen]]
+	vim.cmd.colorscheme [[gruvbox]]
 	vim.api.nvim_set_hl(0, "Visual", {
 		reverse = true,
 	})

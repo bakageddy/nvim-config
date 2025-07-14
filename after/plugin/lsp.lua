@@ -100,7 +100,8 @@ require("mason-lspconfig").setup({
 -- 	'mvnw',
 -- 	'gradlew',
 -- 	'build.gradle',
--- 	'pom.xml'
+-- 	'pom.xml',
+-- 	'build/build.xml'
 -- }
 --
 -- local features = {
