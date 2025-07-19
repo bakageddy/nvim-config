@@ -30,13 +30,14 @@ return require('packer').startup(function(use)
 		},
 	}
 
-	use 'nvim-telescope/telescope-file-browser.nvim'
+	use {
+		'nvim-telescope/telescope-file-browser.nvim',
+	}
+
 	use {
 		'nvim-telescope/telescope-fzf-native.nvim',
-		run = 'make',
-		requires = {
-			'nvim-telescope/telescope.nvim',
-		}
+		run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release',
+		requires = { 'nvim-telescope/telescope.nvim' },
 	}
 
 
@@ -69,13 +70,13 @@ return require('packer').startup(function(use)
 
 	-- Neovim tree
 	use({
-	  "nvim-neo-tree/neo-tree.nvim",
-	  branch = "v3.x",
-	  requires = {
-		"nvim-lua/plenary.nvim",
-		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-		"MunifTanjim/nui.nvim",
-	  }
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+		}
 	})
 
 	-- LSP Support
@@ -94,10 +95,10 @@ return require('packer').startup(function(use)
 	use {
 		"mfussenegger/nvim-dap",
 		requires = {
-			{'rcarriga/nvim-dap-ui'},
-			{'nvim-neotest/nvim-nio'},
-			{'williamboman/mason.nvim'},
-			{'jay-babu/mason-nvim-dap.nvim'},
+			{ 'rcarriga/nvim-dap-ui' },
+			{ 'nvim-neotest/nvim-nio' },
+			{ 'williamboman/mason.nvim' },
+			{ 'jay-babu/mason-nvim-dap.nvim' },
 		}
 	}
 	use {
